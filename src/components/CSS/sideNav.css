@@ -1,0 +1,139 @@
+#sideNav{
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 85px;
+    z-index: 10;
+}
+
+.sideNavlogo{
+    cursor: pointer;
+    margin: 40px 0 55px 0;
+    width: 46px;
+    transition: transform 0.25s ease-in-out;
+}
+
+.sideNavlogo:hover{
+    transform: scale(1.1);
+}
+
+#sideNavMenu{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50%;
+    position: relative;
+}
+
+.sideNavOptions{
+    cursor: pointer;
+    width: 35px;
+    transition: all 0.2s ease-in-out;
+    padding: 5.5px;
+    fill: white;
+    border-radius: 2.5px;
+    border-bottom: 4px solid rgba(255, 255, 255, 0);
+}
+
+.sideNavItems::after{
+    transition: all 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.sideNavItems:hover::after {
+    animation: fadeIn 0.25s ease-in;
+    background-color: #322f3e;
+    color: #FFA700;
+    font-family: monospace;
+    text-shadow: 0 0 10px #FFA700;
+    padding: 8.5px 5px;
+    position: absolute;
+}
+
+#nav_home:hover::after{
+    font-size: 14px;
+    content: "Home";
+    left: -2px;
+
+}
+#nav_category:hover::after{
+    content: "Category";
+    left: -16px;
+}
+#nav_seller:hover::after{
+    content: "Seller";
+    left: -8px;
+
+}
+#nav_recommend:hover::after{
+    content: "Recommend";
+    left: -19px;
+}
+#nav_about:hover::after{
+    font-size: 13.5px;
+    content: "About";
+    left: -5.5px;
+
+}
+#nav_chat:hover::after{
+    content: "Chat";
+    left: -2px;
+}
+
+.active .sideNavOptions{
+    border-bottom: 4px solid #FFA700;
+    fill: #FFA700;
+}
+
+.profile-icon-wrapper {
+  margin: 40px 0 55px 0;
+  cursor: pointer;
+}
+
+.user-icon {
+  fill: rgba(255, 255, 255, 0.7);
+  transition: all 0.25s ease-in-out;
+}
+
+.user-icon:hover {
+  fill: #FFA700;
+  transform: scale(1.1);
+}
+
+.profile-pic {
+  transition: all 0.25s ease-in-out;
+}
+
+.profile-pic:hover {
+  border-color: #FFA700;
+  box-shadow: 0 0 10px rgba(255, 167, 0, 0.5);
+}
+
+.user-icon.logged-in {
+  fill: #FFA700;
+  background: rgba(255, 167, 0, 0.1);
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid #FFA700;
+}
+
+.user-icon.logged-in:hover {
+  background: rgba(255, 167, 0, 0.2);
+  box-shadow: 0 0 10px rgba(255, 167, 0, 0.3);
+}
+
+.user-icon:not(.logged-in) {
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+.user-icon:not(.logged-in):hover {
+  fill: #FFA700;
+}

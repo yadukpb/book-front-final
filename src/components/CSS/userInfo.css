@@ -1,0 +1,222 @@
+#userInfoHead{
+    font-size: 1.8em;
+    margin-left: 28px;
+    margin-bottom: 24px;
+}
+
+#userInfoHead:hover{
+    transform: none;
+}
+
+#userInfoDetails{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    column-gap: 48px;
+    margin-left: 48px;
+    margin-right: 10%;
+    padding: 22px 45px;
+}
+
+#userLogout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#userLogout img{
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px #252232;
+    width: 105px;
+    margin-bottom: 14px;
+}
+
+#userLogout button{
+    background-color: #F47960;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 7px 0;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+#userLogout button:hover{
+    background-color: #fe6a4d;
+    transform: translateY(-1px);
+}
+
+#userDetails{
+    column-gap: 28px;
+    display: flex;
+}
+
+.userInfoData{
+    align-items: center;
+    background-color: #252232;
+    box-shadow: inset 0 -0.4px 5px #9383dc;
+    border-radius: 6px;
+    column-gap: 12px;
+    display: flex;
+    letter-spacing: 0.5px;
+    padding: 8px 28px 8px 20px;
+    margin-bottom: 18px;
+    margin-top: 8px;
+}   
+
+.userInfoData img{
+    width: 28px;
+}
+
+#userBookDetail {
+    margin: 2rem 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.userBooks {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.userBooks h1 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 4px solid #F47960;
+}
+
+.booksGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.bookOverview {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 10px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.bookOverview:hover {
+    transform: translateY(-5px);
+}
+
+.bookOverview img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.bookOverview h2 {
+    margin: 10px 0;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.bookOverview button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #F47960;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.no-books-message {
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    grid-column: 1 / -1;
+}
+
+.pageNotFound{
+    height: 75%;
+    width: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    #userInfoDetails {
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 15px;
+    }
+
+    #userLogout {
+        align-items: center;
+    }
+
+    #userDetails {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .userBooks {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .userBooks > div {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
+}
+
+.profile-image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.default-profile-icon {
+    width: 105px;
+    height: 105px;
+    color: #FFA700;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 0 10px #252232);
+}
+
+.image-upload-label {
+    cursor: pointer;
+    background-color: rgba(255, 167, 0, 0.1);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #FFA700;
+    transition: all 0.2s ease-in-out;
+}
+
+.image-upload-label:hover {
+    background-color: rgba(255, 167, 0, 0.2);
+}
+
+.image-upload-label input {
+    display: none;
+}
+
+.image-upload-label span {
+    display: inline-block;
+}
+
+.image-upload-label:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

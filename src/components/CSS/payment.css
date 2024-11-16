@@ -1,0 +1,256 @@
+.payment-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .payment-modal {
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .payment-header h2 {
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  
+  .close-button:hover {
+    opacity: 1;
+  }
+  
+  .payment-amount {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .payment-amount span {
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  .amount {
+    font-weight: bold;
+    color: #4CAF50;
+  }
+  
+  .payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .payment-method {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .payment-method:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .payment-method.selected {
+    background: rgba(76, 175, 80, 0.2);
+    border-color: #4CAF50;
+  }
+  
+  .payment-method img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .payment-method span {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .upi-input {
+    margin-bottom: 25px;
+  }
+  
+  .upi-input input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .qr-code {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+  }
+  
+  .qr-section p {
+    color: #fff;
+    opacity: 0.8;
+    margin: 0;
+  }
+  
+  .pay-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .pay-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+  }
+  
+  @media (max-width: 600px) {
+    .payment-modal {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .payment-methods {
+      grid-template-columns: 1fr;
+    }
+  
+    .qr-code {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  .receipt-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+  }
+  
+  .receipt {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .receipt-header {
+    text-align: center;
+    border-bottom: 2px dashed #e0e0e0;
+    padding-bottom: 1rem;
+  }
+  
+  .receipt-logo {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .receipt-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .receipt-footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .primary-button, .secondary-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  
+  .primary-button {
+    background: #007bff;
+    color: white;
+  }
+  
+  .secondary-button {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+  }
+  
+  .primary-button:hover, .secondary-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

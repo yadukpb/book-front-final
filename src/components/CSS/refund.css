@@ -1,0 +1,73 @@
+.refund-container {
+    padding: 30px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin: 20px;
+    min-height: calc(100vh - 120px);
+}
+
+.refund-container h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #F47960;
+}
+
+.last-updated {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+.refund-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.refund-content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+}
+
+.refund-section {
+    margin: 25px 0;
+}
+
+.refund-section ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.refund-section li {
+    margin: 15px 0;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.refund-section li:before {
+    content: "•";
+    color: #F47960;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}

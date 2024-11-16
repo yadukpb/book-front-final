@@ -1,0 +1,140 @@
+#categoryHead {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#categoryList {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    width: 67%;
+    margin-top: 25px;
+}
+
+.books_category {
+    align-items: center;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.07);
+    cursor: pointer;
+    color: white;
+    display: flex;
+    padding: 6px 20px;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+    margin-right: 15px;
+}
+
+.books_category:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 8px turquoise;
+}
+
+.books_category img {
+    width: 34px;
+    margin-right: 9px;
+}
+
+#book_category .active {
+    box-shadow: 0 0 8px cyan;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.04);
+}
+
+.category_select {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    column-gap: 80px;
+}
+
+.category_select img {
+    width: 290px;
+}
+
+.category_select p {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#bookByCategoryHead{
+    align-items: center;
+    column-gap: 10px;
+    display: flex;
+    font-weight: 500;
+    font-size: 1.65em;
+    letter-spacing: 1px;
+    margin-left: 14px;
+}
+
+#bookByCategoryHead img{
+    width: 38px;
+}
+
+#bookByCategory {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    #bookByCategory {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.bookOverview {
+    text-decoration: none;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.bookOverview .imgContainer {
+    width: 100%;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+}
+
+.bookOverview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.bookOverview h2 {
+    padding: 10px;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.bookOverview button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.searchBar {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.bookOverview:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0 6px #5e509b;
+}
+
+@media (max-width: 768px) {
+    .books_category img {
+        display: block;
+        margin: 0 auto;
+    }
+}

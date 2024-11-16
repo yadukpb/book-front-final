@@ -1,0 +1,56 @@
+.terms-container {
+    padding: 30px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin: 20px;
+    min-height: calc(100vh - 120px);
+}
+
+.terms-container h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #F47960;
+}
+
+.last-updated {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+.terms-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.terms-content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+}
+
+.terms-section {
+    margin: 25px 0;
+}
+
+.terms-section ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.terms-section li {
+    margin: 15px 0;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.terms-section li:before {
+    content: "•";
+    color: #F47960;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #252232;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+
+#navigation{
+  display: flex;
+}
+
+section{
+  width: calc(100vw - 80px);
+  height: calc(100vh - 45px);
+  padding: 20px;
+}
+
+.gradient_head{
+  background: radial-gradient(146.74% 34539.46% at 148.37% 48.49%, #8972F2 0%, #D18DFF 59.45%, #FD8198 93.76%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 15px;
+  text-shadow: 0px 0px 25px #A448C5;
+  transition: all 0.25s ease-in-out;
+}
+
+.gradient_head:hover{
+  transform: scale(1.02);
+  text-shadow: 0px 0px 45px #e031ed;
+}
+
+.sideNav .navLink img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.sideNav .navLink span {
+  display: none;
+}
+
+.sideNav .navLink:hover span {
+  display: inline;
+}

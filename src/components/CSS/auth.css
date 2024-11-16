@@ -1,0 +1,155 @@
+.authContainer {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 12px #E86571;
+    border-radius: 12px;
+    padding: 40px;
+    width: 450px;
+    min-height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    overflow-y: auto;
+    max-height: 90vh;
+    transition: all 0.25s ease-in-out;
+    z-index: 1;
+}
+
+.authContainer:hover {
+    transform: translate(-50%, -50%) scale(1.01);
+    box-shadow: 0 0 16px #E86571;
+}
+
+.authContainer h2 {
+    color: white;
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 0.4px;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.authInput {
+    align-items: center;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 12px 20px;
+    border: none;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    outline: none;
+    width: 100%;
+}
+
+.authInput::placeholder {
+    color: #909090;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0;
+}
+
+.authButton {
+    background-color: #F47960;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.authButton:hover {
+    box-shadow: 0 0 12px #F47960;
+}
+
+.authButton:active {
+    box-shadow: 0 0 5px #F47960;
+}
+
+.switchButton {
+    background: none;
+    border: 2px solid #F47960;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+
+.switchButton:hover {
+    background-color: rgba(244, 121, 96, 0.1);
+}
+
+.errorMessage {
+    color: #E86571;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .authContainer {
+        width: 85%;
+        min-height: 400px;
+        padding: 25px;
+        margin-bottom: 70px;
+    }
+
+    .authForm {
+        gap: 20px;
+    }
+
+    .authInput {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .authContainer {
+        width: 90%;
+        min-height: 350px;
+        padding: 20px;
+        margin-bottom: 60px;
+    }
+
+    .authContainer h2 {
+        font-size: 1.3em;
+        margin-bottom: 25px;
+    }
+
+    .authForm {
+        gap: 15px;
+    }
+
+    .authInput {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
+
+    .authButton, .switchButton {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
+}
