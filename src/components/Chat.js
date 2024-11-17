@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./CSS/chat.css";
-import { FaUserCircle } from "react-icons/fa";
 import { BsSend } from "react-icons/bs";
+import { AiOutlineUser } from "react-icons/ai";
 import { toast } from "react-toastify";
 
 function Chat({ userId, userData }) {
@@ -88,7 +88,7 @@ function Chat({ userId, userData }) {
               {chat.participants.find(p => p._id !== userId)?.image ? (
                 <img src={chat.participants.find(p => p._id !== userId)?.image} alt="Avatar" />
               ) : (
-                <FaUserCircle size={30} />
+                <AiOutlineUser size={30} />
               )}
             </div>
             <div className="seller-info">
@@ -106,6 +106,13 @@ function Chat({ userId, userData }) {
           <>
             <div className="chat-header">
               <div className="selected-seller-info">
+                <div className="current-chat-avatar">
+                  {currentChat.participants.find(p => p._id !== userId)?.image ? (
+                    <img src={currentChat.participants.find(p => p._id !== userId)?.image} alt="Avatar" className="avatar-icon" />
+                  ) : (
+                    <AiOutlineUser size={40} />
+                  )}
+                </div>
                 {currentChat.participants.find(p => p._id !== userId)?.name}
               </div>
             </div>
@@ -128,7 +135,7 @@ function Chat({ userId, userData }) {
               ))}
             </div>
 
-            <div className="input-area">
+            <div className="input-area" style={{ marginTop: 'auto' }}>
               <div className="message-input-container">
                 <input
                   type="text"
@@ -139,7 +146,7 @@ function Chat({ userId, userData }) {
                   className="message-input"
                 />
                 <button onClick={sendMessage} className="send-button">
-                  <BsSend />
+                  <BsSend size={20} />
                 </button>
               </div>
             </div>

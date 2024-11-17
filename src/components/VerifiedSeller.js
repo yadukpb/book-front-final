@@ -26,7 +26,7 @@ const handleImageChange = (e, setImage) => {
   }
 };
 
-function VerifiedSeller({ verified, userId, user }) {
+function VerifiedSeller({ verified, userId, user, bookId }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [bookName, setbookName] = useState("");
   const [bookDesc, setbookDesc] = useState("");
@@ -40,6 +40,7 @@ function VerifiedSeller({ verified, userId, user }) {
   const [bookPublisher, setbookPublisher] = useState("");
   const [bookCategory, setbookCategory] = useState("science");
   const [isLoading, setIsLoading] = useState(false);
+  const [purchaseInfo, setPurchaseInfo] = useState(null);
 
 
   useEffect(() => {
@@ -64,6 +65,27 @@ function VerifiedSeller({ verified, userId, user }) {
       window.location.href = '/seller';
     }
   }, [verified]);
+
+  useEffect(() => {
+    const fetchPurchaseInfo = async () => {
+        const token = localStorage.getItem('token');
+        if (!token) return;
+
+        const response = await fetch(`http://localhost:5007/api/purchases/${bookId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            setPurchaseInfo(data);
+        }
+    };
+
+    fetchPurchaseInfo();
+  }, [bookId]);
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -342,6 +364,16 @@ function VerifiedSeller({ verified, userId, user }) {
         </div>
       </div>
       <ToastContainer />
+      {purchaseInfo && (
+        <div className="purchase-receipt">
+            <h3>Purchase Receipt</h3>
+            <p>Book: {purchaseInfo.bookId.name}</p>
+            <p>Price: {purchaseInfo.amount}</p>
+            <p>Payment Method: {purchaseInfo.paymentId}</p>
+            <p>Status: {purchaseInfo.status}</p>
+            <p>Date: {new Date(purchaseInfo.timestamp).toLocaleDateString()}</p>
+        </div>
+      )}
     </section>
   );
 }

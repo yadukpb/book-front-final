@@ -166,3 +166,39 @@
         padding: 5px; /* Further reduce padding */
     }
 }
+
+.recommendedBooks {
+  margin-top: 20px;
+}
+
+.bookCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.bookCard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.bookCard:hover {
+  transform: scale(1.05);
+}
+
+.bookCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.bookCard h3 {
+  font-size: 1em;
+  margin: 10px 0;
+}

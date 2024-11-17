@@ -12,7 +12,7 @@ import growth from "./images/Categories/growth.png";
 import category_select from "./images/Categories/category_select.png";
 
 function Category({ books }) {
-  const { catId } = useParams();
+  const { catId = 'science' } = useParams();
   const [categoryBooks, setCategoryBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
