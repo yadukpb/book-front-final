@@ -148,6 +148,14 @@ const Book = ({ books, wishlist, setWishlist, user }) => {
     navigate(`/chat/${book.seller.id}`);
   };
 
+  const handleChatWithSeller = () => {
+    if (book.canChat) {
+      navigate(`/chat/${book.seller.id}`);
+    } else {
+      alert("You need to purchase this book to chat with the seller.");
+    }
+  };
+
   // Loading state
   if (isLoading) {
     return (

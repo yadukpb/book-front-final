@@ -50,9 +50,30 @@ function Chat({ userId, userData }) {
     }
   };
 
+  const initiateChatWithSeller = async () => {
+    const response = await fetch(`http://localhost:5007/api/chats`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({ participantId: sellerId })
+    });
+
+    if (response.ok) {
+      const chat = await response.json();
+      setCurrentChat(chat); // Set the current chat to the newly created or fetched chat
+    } else {
+      toast.error('Failed to initiate chat with seller');
+    }
+  };
+
   useEffect(() => {
     fetchChats();
-  }, []);
+    if (sellerId) {
+      initiateChatWithSeller(); // Initiate chat with seller if sellerId is present
+    }
+  }, [sellerId]);
 
   return (
     <div className="chat-container">
