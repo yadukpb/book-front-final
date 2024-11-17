@@ -19,7 +19,7 @@ const handleImageChange = (e, setImage) => {
   const file = e.target.files[0];
   if (file) {
     if (file.size > MAX_IMAGE_SIZE) {
-      alert('Image size should be less than 5MB');
+      toast.error('Image size should be less than 5MB');
       return;
     }
     setImage(file);
@@ -41,6 +41,17 @@ function VerifiedSeller({ verified, userId, user }) {
   const [bookCategory, setbookCategory] = useState("science");
   const [isLoading, setIsLoading] = useState(false);
 
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      toast.error('Please sign in to sell your book');
+      window.location.href = '/auth'; // Redirect to login if not authenticated
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, []);
+  
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -123,7 +134,6 @@ function VerifiedSeller({ verified, userId, user }) {
       window.location.reload();
     } catch (error) {
       toast.error(error.message || 'Failed to upload book');
-      console.error('Upload error:', error);
     } finally {
       setIsLoading(false);
     }

@@ -15,27 +15,20 @@ function Chat({ userId, userData }) {
   const chatBoxRef = useRef(null);
 
   const refreshToken = async () => {
-    try {
-      const refreshToken = localStorage.getItem('refreshToken');
-      const response = await fetch('http://localhost:5007/api/auth/refresh', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ refreshToken })
-      });
-
-      if (!response.ok) throw new Error('Token refresh failed');
-
-      const { accessToken } = await response.json();
-      localStorage.setItem('accessToken', accessToken);
-      return accessToken;
-    } catch (error) {
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
-      navigate('/auth');
-      throw error;
-    }
+    const refreshToken = localStorage.getItem('refreshToken');
+    const response = await fetch('http://localhost:5007/api/auth/refresh', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ refreshToken })
+    });
+  
+    if (!response.ok) throw new Error('Token refresh failed');
+  
+    const { accessToken } = await response.json();
+    localStorage.setItem('accessToken', accessToken);
+    return accessToken;
   };
 
   const fetchWithAuth = async (url, options = {}) => {

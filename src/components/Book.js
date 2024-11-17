@@ -26,7 +26,7 @@ const Book = ({ books, wishlist, setWishlist, user }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [book, setBook] = useState(null);
-  const isInWishlist = wishlist?.includes(bookId);
+  const [isInWishlist, setIsInWishlist] = useState(false);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -36,6 +36,7 @@ const Book = ({ books, wishlist, setWishlist, user }) => {
           setError('Book not found');
         } else {
           setBook(foundBook);
+          await checkIfInWishlist(foundBook._id);
         }
       } catch (err) {
         setError(err.message);
@@ -45,6 +46,29 @@ const Book = ({ books, wishlist, setWishlist, user }) => {
     };
     fetchBook();
   }, [bookId, books]);
+
+  const checkIfInWishlist = async (bookId) => {
+    const accessToken = localStorage.getItem('token');
+    if (!accessToken) return;
+
+    try {
+      const response = await fetch(`http://localhost:5007/api/wishlist/check`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({ bookId })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setIsInWishlist(data.inWishlist);
+      }
+    } catch (err) {
+      console.error('Error checking wishlist:', err);
+    }
+  };
 
   useEffect(() => {
     if (book?.seller?.id) {
@@ -71,20 +95,15 @@ const Book = ({ books, wishlist, setWishlist, user }) => {
 
   // Handle wishlist toggling
   const handleWishlist = async () => {
-    if (!user) {
+    const accessToken = localStorage.getItem('token');
+    if (!accessToken) {
       toast.error('Please sign in to add to wishlist');
       return;
     }
 
     try {
       const endpoint = isInWishlist ? 'remove' : 'add';
-      const accessToken = localStorage.getItem('accessToken');
       
-      if (!accessToken) {
-        toast.error('Please login again');
-        return;
-      }
-
       const response = await fetch(`http://localhost:5007/api/wishlist/${endpoint}`, {
         method: 'POST',
         headers: {
@@ -101,6 +120,7 @@ const Book = ({ books, wishlist, setWishlist, user }) => {
 
       const { wishlist: updatedWishlist } = await response.json();
       setWishlist(updatedWishlist);
+      setIsInWishlist(!isInWishlist);
       toast.success(isInWishlist ? 'Removed from wishlist' : 'Added to wishlist');
     } catch (err) {
       console.error('Wishlist error:', err);
@@ -113,7 +133,7 @@ const Book = ({ books, wishlist, setWishlist, user }) => {
   };
 
   const handleChatClick = () => {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem('token');
     if (!accessToken) {
       toast.error('Please login to chat with seller');
       navigate('/auth');
